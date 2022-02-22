@@ -8,3 +8,6 @@
 * https://www.w3schools.com/nodejs/nodejs_raspberrypi.asp
 
 
+# Getting started guide for installing the extension for VS Code
+* 
+
