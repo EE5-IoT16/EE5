@@ -1,18 +1,13 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: true}));
+// In the future can be get as a parameter from the command line
+const port = 3000;
 
-app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-    res.json({
-        "message": "Oiii mate!"
-    });
+app.get('/', (req, res) => { 
+    res.send("Hello world!");
 });
 
-app.listen(3000, () => {
-    console.log("server listening on port 3000");
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
 });
