@@ -1,23 +1,16 @@
 {
-  "name": "ee5",
-  "version": "1.0.0",
-  "description": "\"initial init file\"",
-  "main": "index.js",
+  "name": "api",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "console.log(\"hello!\")"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SamuelTocci/EE5.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SamuelTocci/EE5/issues"
-  },
-  "homepage": "https://github.com/SamuelTocci/EE5#readme",
   "dependencies": {
-    "body-parser": "^1.19.2",
-    "express": "^4.17.3"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
   }
 }
