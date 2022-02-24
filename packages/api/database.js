@@ -3,9 +3,9 @@ const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://SamuelTocci:BAKDpGf5aXCuTjqQ@ee5.5nq6q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri)
 
-testDoc = {type : "heartrate", bpm : 86}
+testDoc = {type : "heartrate", bpm : 90}
 
-async function main(){
+async function insertOneDb(doc){
     /**
     * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
      */
@@ -18,13 +18,16 @@ async function main(){
 
 
         const database = client.db('myFirstDatabase');
-        const movies = database.collection('heartrate');
+        const hrCollection = database.collection('heartrate');
 
-        const res = movies.insertOne(testDoc);
+        //const res = hrCollection.insertOne(doc);
 
-        const query = { type: 'heartrate' };
-        const movie = await movies.findOne(query);
-        console.log(movie);
+        const findResult = await hrCollection.find({type: "heartrate"})
+        await findResult.forEach(console.dir)
+
+        // const query = { type: 'heartrate' };
+        // const movie = await hrCollection.findOne(query);
+        // console.log(movie);
 
       } finally {
         // Ensures that the client will close when you finish/error
@@ -32,20 +35,4 @@ async function main(){
       }
 }
 
-
-async function insertOneDoc(){
-  const res = await collection.insertOne(testDoc);
-  console.log(res)
-  return res
-}
-
-// db.inventory.insertOne(
-//   { "item" : "canvas",
-//     "qty" : 100,
-//     "tags" : ["cotton"],
-//     "size" : { "h" : 28, "w" : 35.5, "uom" : "cm" }
-//   }
-// )
-
-
-main();
+insertOneDb(testDoc);
