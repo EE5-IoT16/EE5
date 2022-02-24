@@ -25,4 +25,4 @@
 3. open an example project by command "ESP-IDF:Show Example Projects"
 4. choose the correct port by command "ESP-IDF:Select port to use" or by clicking the icon below 
 5. chooes the correct target from the icon below 
-6. now you can bulid -> flash -> monitor the project, all can be done by clicking the icons 
+6. now you can bulid -> flash(UART) -> monitor the project, all can be done by clicking the icons 
