@@ -7,6 +7,7 @@ var express = require('express');
 var indexRouter = require('./routes/index');
 var accelerometerRouter = require('./routes/accelerometerRoutes');
 var heartRateRouter = require('./routes/heartRateRouter');
+var gyroRouter = require('./routes/gyroRouter');
 
 var app = express();
 
@@ -19,6 +20,7 @@ var app = express();
 app.use('/', indexRouter);
 app.use('/accel', accelerometerRouter);
 app.use('/heartRate', heartRateRouter);
+app.use('/gyro', gyroRouter);
 
 // // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
