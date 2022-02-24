@@ -48,5 +48,9 @@ async function findAll(findQuery){
   }
 }
 
+module.exports = {
+  findAll: findAll,
+  insertOne: insertOne,
+}
 //insertOne(testDoc);
-findAll({type: "heartrate"});
+//findAll({type: "heartrate"});
