@@ -19,6 +19,10 @@
 * https://www.jetbrains.com/help/clion/esp-idf.html#prepare
 
 
-# Getting started guide for installing the extension for VS Code
-* 
-
+# How to use VS Code extension
+1. Download extension named "Espressif IDF" (for some reason the newest version may not work, if it not working, download previous version)
+2. install the environment for the extension by command "ESP-IDF:Configure ESP-IDF extension"
+3. open an example project by command "ESP-IDF:Show Example Projects"
+4. choose the correct port by command "ESP-IDF:Select port to use" or by clicking the icon below 
+5. chooes the correct target from the icon below 
+6. now you can bulid -> flash(UART) -> monitor the project, all can be done by clicking the icons 
