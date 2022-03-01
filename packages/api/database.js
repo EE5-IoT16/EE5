@@ -66,5 +66,3 @@ module.exports = {
   insertOne: insertOne,
   update: update,
 }
-//insertOne(testDoc);
-//findAll({type: "heartrate"});
