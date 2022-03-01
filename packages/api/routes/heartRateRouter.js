@@ -11,11 +11,13 @@ router.post('/', function(req, res, next) {
     res.send('Heart rate post method called.');
     const doc = req.query;
     db.insertOne(doc);
-    db.findAll({type: "heartrate"});
 });
 
 router.put('/', function(req, res, next) {
     res.send('Heart rate put method called.');
+    const filterDoc = req.query.type;
+    const newDoc = req.query;
+    db.update(filterDoc, newDoc)
 });
 
 router.delete('/', function(req, res, next) {
