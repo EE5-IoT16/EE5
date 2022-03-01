@@ -10,8 +10,10 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
     res.send('Heart rate post method called.');
-    const doc = req.query;
-    db.insertOne(doc);
+    const bpm = req.query.bpm;
+    const ts = req.query.ts;
+    const queryString = ""
+    db.query()
 });
 
 router.put('/', function(req, res, next) {
