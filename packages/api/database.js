@@ -1,68 +1,31 @@
-const {MongoClient} = require('mongodb');
+const mysql = require('mysql');
 
-const uri = "mongodb+srv://SamuelTocci:BAKDpGf5aXCuTjqQ@ee5.5nq6q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri)
+const sql = mysql.createConnection({
+  host: 'mysql.studev.groept.be',
+  user: 'a21iot16',
+  password: '7eG8x5Xp',
+  database: 'a21iot16'
+});
 
-async function insertOne(doc){
-    /**
-    * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-     */
-    try {
-        // Connect the client to the server
-        await client.connect();
-        // Establish and verify connection
-        await client.db("admin").command({ ping: 1 });
-
-
-        const database = client.db('myFirstDatabase');
-        const hrCollection = database.collection('heartrate');
-
-        const res = await hrCollection.insertOne(doc);
-
-      } finally {
-        // Ensures that the client will close when you finish/error
-        await client.close();
-      }
+function connect(){
+  sql.connect((err) => {
+    if (err) throw err;
+    console.log('Connected!');
+  });
 }
 
-async function findAll(findQuery){
-  try {
-    // Connect the client to the server
-    await client.connect();
-    await client.db("admin").command({ ping: 1 });
+async function query(queryString){
+  connect();
 
-    const database = client.db('myFirstDatabase');
-    const hrCollection = database.collection('heartrate');
+  con.query(queryString, (err,rows) => {
+    if(err) throw err;
+    console.log('Data received from Db:');
+    console.log(rows);
+  });
 
-
-    const findResult = await hrCollection.find(findQuery);
-    await findResult.forEach(console.dir);
-
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-
-async function update(filterDoc, newDoc){
-  try {
-    // Connect the client to the server
-    await client.connect();
-    await client.db("admin").command({ ping: 1 });
-
-    const database = client.db('myFirstDatabase');
-    const hrCollection = database.collection('heartrate');
-
-    await hrCollection.updateOne(filterDoc, newDoc);
-
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+  con.end((err) => {});
 }
 
 module.exports = {
-  findAll: findAll,
-  insertOne: insertOne,
-  update: update,
+  query: query,
 }
