@@ -17,13 +17,13 @@ function connect(){
 async function query(queryString){
   connect();
 
-  con.query(queryString, (err,rows) => {
+  sql.query(queryString, (err,rows) => {
     if(err) throw err;
     console.log('Data received from Db:');
     console.log(rows);
   });
 
-  con.end((err) => {});
+  sql.end((err) => {});
 }
 
 module.exports = {

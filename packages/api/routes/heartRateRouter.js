@@ -4,7 +4,8 @@ var db = require("../database")
 
 router.get('/', function(req, res, next) {
   res.send('Heart rate get method called.');
-  db.findAll({type: "heartrate"}); //TODO: limit returned data
+  queryString = 'SELECT * FROM User';
+  db.query(queryString);
 });
 
 router.post('/', function(req, res, next) {
