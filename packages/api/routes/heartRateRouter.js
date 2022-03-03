@@ -1,3 +1,4 @@
+const { query } = require('express');
 var express = require('express');
 var router = express.Router();
 var db = require("../database")
@@ -12,8 +13,9 @@ router.post('/', function(req, res, next) {
     res.send('Heart rate post method called.');
     const bpm = req.query.bpm;
     const ts = req.query.ts;
-    const queryString = ""
-    db.query()
+    const deviceId = req.query.deviceId;
+    const queryString = "INSERT INTO `a21iot16`.`heartRate`(`bpm`,`ts`,`deviceId`)VALUES(" + bpm + "," + ts + "," + deviceId + ");";
+    db.query(queryString);
 });
 
 router.put('/', function(req, res, next) {
